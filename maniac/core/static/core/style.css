@@ -1,0 +1,27 @@
+.font-for-text {
+    font-family: 'Oswald';
+}
+
+.navbar-background {
+    background: linear-gradient(135deg, green, white);
+}
+
+.footer-styling {
+    text-align: center;
+    font-family: 'Oswald';
+}
+
+.container-feed-styling {
+    padding-block: 30px;
+    margin-block: 30px;
+    border: 1px solid gray;
+    border-radius: 30px;
+}
+
+.container-post-styling {
+    padding-block: 20px;
+    padding-inline: 90px;
+    margin-block: 20px;
+    border: 1px solid gray;
+    border-radius: 20px;
+}

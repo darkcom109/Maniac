@@ -1,14 +1,19 @@
 {% extends "core/base.html" %}
 {% block content %}
-  <h2>Feed</h2>
-  {% for post in posts %}
-    <div>
-      <strong>@{{ post.author.username }}</strong>
-      <p>{{ post.content }}</p>
-      <small>{{ post.created_at }}</small>
-      <hr>
-    </div>
-  {% empty %}
-    <p>No posts yet. Be the first to roast someone!</p>
-  {% endfor %}
+  <div class="container container-feed-styling">
+    <h2 class="font-for-text text-center">Feed</h2>
+    {% for post in posts %}
+      <div class="container-post-styling">
+        <strong>@{{ post.author.username }}</strong>
+        <p>{{ post.content }}</p>
+        <small>{{ post.created_at }}</small>
+        {% if post.author == user %}
+          <a href="{% url 'edit_post' post.id %}">Edit</a> |
+          <a href="{% url 'delete_post' post.id %}">Delete</a>
+        {% endif %}
+      </div>
+    {% empty %}
+      <p>No posts yet. Be the first to roast someone!</p>
+    {% endfor %}
+  </div>
 {% endblock %}

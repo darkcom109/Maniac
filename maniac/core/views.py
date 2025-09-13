@@ -9,7 +9,6 @@ from .forms import PostForm
 from .models import Post
 
 # Page Views
-@login_required(login_url='login')
 def feed(request):
     posts = Post.objects.all().order_by('-created_at')
     return render(request, 'core/feed.html', {'posts': posts})
@@ -22,6 +21,7 @@ def profile(request, username):
 def login_view(request):
     return render(request, 'core/login.html')
 
+# Post Views
 @login_required(login_url='login')
 def post_view(request):
     if request.method == "POST":
@@ -34,6 +34,29 @@ def post_view(request):
     else:
         form = PostForm()
     return render(request, 'core/post.html', {'form': form})
+
+@login_required(login_url='login')
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('feed')
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'core/edit_post.html', {'form': form, 'post': post})
+
+@login_required(login_url='login')
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id, author=request.user)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('feed')
+    
+    return render(request, 'core/delete_post.html', {'post': post})
 
 # Signup, Login and Logout Views
 def signup_view(request):
@@ -69,8 +92,9 @@ def login_view(request):
     return render(request, 'core/login.html', {'form' : form})
 
 def logout_view(request):
-    if request.method == "POST":
+    try:
         logout(request)
         messages.success(request, "Logout Successful!")
         return redirect('feed')
-    return messages.error(request, "Failed to Logout. Try Again")
+    except:
+        return messages.error(request, "Failed to Logout. Try Again")
