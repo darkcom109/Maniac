@@ -1,6 +1,14 @@
 {% extends "core/base.html" %}
-
 {% block content %}
-    <h2>Feed</h2>
-    <p>Welcome to the chaos. Insults will appear here soon.</p>
+  <h2>Feed</h2>
+  {% for post in posts %}
+    <div>
+      <strong>@{{ post.author.username }}</strong>
+      <p>{{ post.content }}</p>
+      <small>{{ post.created_at }}</small>
+      <hr>
+    </div>
+  {% empty %}
+    <p>No posts yet. Be the first to roast someone!</p>
+  {% endfor %}
 {% endblock %}

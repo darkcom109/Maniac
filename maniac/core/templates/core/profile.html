@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-    <h2>{{ username }}'s Profile</h2>
-    <p>Here’s where all of {{ username }}’s spicy comments will go.</p>
+    <h2>{{ profile_user.username.title }}'s Profile</h2>
+    <p>Email: {{ profile_user.email }}</p>
+    <p>Joined: {{ profile_user.date_joined }}</p>
 {% endblock %}
