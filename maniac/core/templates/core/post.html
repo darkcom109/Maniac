@@ -1,9 +1,11 @@
 {% extends "core/base.html" %}
 {% block content %}
-  <h2>New Post</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Post</button>
-  </form>
+  <div class="container container-feed-styling text-center shadow-sm">
+    <h2>New Post</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Post</button>
+    </form>
+  </div>
 {% endblock %}
