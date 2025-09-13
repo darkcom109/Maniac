@@ -11,6 +11,15 @@
           <a href="{% url 'edit_post' post.id %}">Edit</a> |
           <a href="{% url 'delete_post' post.id %}">Delete</a>
         {% endif %}
+        <form method="post" action="{% url 'like_post' post.id %}">
+        {% csrf_token %}
+        {% if user in post.likes.all %}
+          <button type="submit" class="btn btn-sm btn-danger">Unlike</button>
+        {% else %}
+          <button type="submit" class="btn btn-sm btn-primary">Like</button>
+        {% endif %}
+      </form>
+      <p class="mt-2"><strong>{{ post.total_likes }}</strong> likes</p>
       </div>
     {% empty %}
       <p>No posts yet. Be the first to roast someone!</p>

@@ -58,6 +58,20 @@ def delete_post(request, post_id):
     
     return render(request, 'core/delete_post.html', {'post': post})
 
+@login_required(login_url='login')
+def like_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.user in post.likes.all():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+
+    return redirect('feed')
+
+def total_likes(self):
+    return self.likes.count()
+
 # Signup, Login and Logout Views
 def signup_view(request):
     if request.user.is_authenticated:
