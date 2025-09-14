@@ -4,8 +4,8 @@ from django.contrib.auth import login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import PostForm
-from .models import Post
+from .forms import PostForm, CommentForm
+from .models import Post, Comment
 
 # Page Views
 def feed(request):
@@ -108,6 +108,29 @@ def logout_view(request):
     try:
         logout(request)
         messages.success(request, "Logout Successful!")
-        return redirect('feed')
+        return redirect('login')
     except:
         return messages.error(request, "Failed to Logout. Try Again")
+
+# Comment Section
+@login_required(login_url='login')
+def view_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    comments = post.comments.all().order_by("-created_at")
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.author = request.user
+            comment.save()
+            return redirect('view_post', post_id=post.id)
+    else:
+        form = CommentForm()
+
+    return render(request, 'core/view_post.html', {
+        'post': post,
+        'comments': comments,
+        'form': form,
+    })

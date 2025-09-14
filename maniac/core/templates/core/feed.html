@@ -1,20 +1,27 @@
 {% extends "core/base.html" %}
 {% block content %}
   <div class="container-feed-styling">
-    <h1 class="font-for-text text-center fs-1" style="font-size: 30px">FEED</h1>
+    <h1 class="font-for-text text-center text-white fs-1" style="font-size: 30px">FEED</h1>
     {% for post in posts %}
-      <div class="container-post-styling font-for-text">
+      <div class="container-post-styling font-for-text shadow-sm">
 
         <strong>@{{ post.author.username }}</strong>
+        {% if post.author == user %}(You){% endif%}
 
         <p>{{ post.content }}</p>
 
         <small>{{ post.created_at }}</small>
 
-        {% if post.author == user %}
-          <a href="{% url 'edit_post' post.id %}">Edit</a> |
-          <a href="{% url 'delete_post' post.id %}">Delete</a>
-        {% endif %}
+        <div class="ms-auto">
+          {% if post.author == user %}
+              <a class="post-button" href="{% url 'edit_post' post.id %}">Edit</a>
+              <a class="post-button" href="{% url 'delete_post' post.id %}">Delete</a>
+              <a class="post-button" href="{% url 'view_post' post.id %}">View</a>
+          {% else %}
+              <a class="post-button" href="{% url 'view_post' post.id %}">View</a>
+          {% endif %}
+          
+        </div>
 
         <form method="post" action="{% url 'like_post' post.id %}">
           {% csrf_token %}
