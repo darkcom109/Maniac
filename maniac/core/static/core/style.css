@@ -7,8 +7,9 @@
 }
 
 .navbar-background {
-    background-color: green;
+  background-color: green;
 }
+
 
 .nav-button {
     transition: background-color 0.3 ease;
@@ -47,7 +48,7 @@
     padding-block: 50px;
     padding-inline: 10px;
     margin-block: 30px;
-    margin-inline: 300px;
+    margin-inline: 400px;
     border: 1px solid gray;
     border-radius: 30px;
 }

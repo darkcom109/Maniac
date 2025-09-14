@@ -1,11 +1,22 @@
 {% extends "core/base.html" %}
 {% block content %}
-    <div class="container-login-styling text-center font-for-text d-flex flex-column gap-3">
-        <h2>Login</h2>
-        <form method="post">
+    <div class="container-login-styling text-center font-for-text d-flex flex-column gap-4 shadow-sm">
+
+        <h1>Login</h1>
+
+        <form method="post" class="d-flex flex-column gap-3">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button class="button-styling" type="submit">Login</button>
+            <div>
+                <p>Username</p>
+                <p>{{ form.username }}</p>
+            </div>
+            <div>
+                <p>Password</p>
+                <p>{{ form.password }}</p>
+            </div>
+            <div>
+                <button class="button-styling mw-100" type="submit">Login</button>
+            </div>
         </form>
     </div>
 {% endblock %}
