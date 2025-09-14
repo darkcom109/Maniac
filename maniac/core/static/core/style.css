@@ -1,5 +1,9 @@
 .font-for-text {
-    font-family: 'Oswald';
+    font-family: 'VT323';
+}
+
+.font-for-brand {
+    font-family: 'Press Start 2P'
 }
 
 .no-posts-text {
@@ -7,9 +11,8 @@
 }
 
 .navbar-background {
-  background-color: green;
+  background: linear-gradient(135deg, purple, rgb(241, 133, 151))
 }
-
 
 .nav-button {
     transition: background-color 0.3 ease;
@@ -18,7 +21,7 @@
 
 .nav-button:hover {
     background-color: rgb(255, 255, 255);
-    color: green !important;
+    color: purple !important;
     border-radius: 10px;
 }
 
@@ -51,6 +54,7 @@
     margin-inline: 400px;
     border: 1px solid gray;
     border-radius: 30px;
+    background-color: rgb(244, 241, 237);
 }
 
 .button-styling {
@@ -59,7 +63,7 @@
     border-radius: 10px;
     transition: background-color 0.3s ease;
     padding-inline: 10px;
-    padding-block: 1px;
+    padding-block: 2px;
 }
 
 .button-styling:hover {

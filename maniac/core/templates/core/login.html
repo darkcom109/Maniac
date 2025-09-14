@@ -7,11 +7,11 @@
         <form method="post" class="d-flex flex-column gap-3">
             {% csrf_token %}
             <div>
-                <p>Username</p>
+                <p class="fs-5">Username</p>
                 <p>{{ form.username }}</p>
             </div>
             <div>
-                <p>Password</p>
+                <p class="fs-5">Password</p>
                 <p>{{ form.password }}</p>
             </div>
             <div>
