@@ -14,46 +14,49 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-background shadow-sm">
             <div class="container-fluid font-for-text">
+
                 <a class="navbar-brand text-white">MANIAC</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="{% url 'feed' %}">Feed</a>
-                    </li>
-                    {% if user.is_authenticated %}
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="{% url 'profile' user.username %}">Profile</a>
+                            <a class="nav-link active text-white nav-button" aria-current="page" href="{% url 'feed' %}">Feed</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="{% url 'post' %}">Post</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-light" type="submit">Search</button>
-                        </form>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="{% url 'login' %}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="{% url 'signup' %}">Signup</a>
-                        </li>
-                    {% endif %}
-                    
-                </ul>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link active text-white nav-button" aria-current="page" href="{% url 'profile' user.username %}">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white nav-button" aria-current="page" href="{% url 'post' %}">Post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white nav-button" aria-current="page" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                            <form class="d-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">Search</button>
+                            </form>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link active text-white nav-button" aria-current="page" href="{% url 'login' %}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-white nav-button" aria-current="page" href="{% url 'signup' %}">Signup</a>
+                            </li>
+                        {% endif %}
+                        
+                    </ul>
                 </div>
             </div>
         </nav>
 
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show font-for-text" role="alert">
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show font-for-text text-center" role="alert">
                     {{ message }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
