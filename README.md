@@ -20,4 +20,4 @@ git clone https://github.com/darkcom109/Maniac.git
 cd Maniac
 
 # Install dependencies
-npm install   # or yarn install, pip install -r requirements.txt, etc.
+pip install -r requirements.txt
