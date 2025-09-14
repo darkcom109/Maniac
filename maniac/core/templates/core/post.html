@@ -1,11 +1,12 @@
 {% extends "core/base.html" %}
 {% block content %}
-  <div class="container container-feed-styling font-for-text text-center shadow-sm">
-    <h2>New Post</h2>
+  <div class="container container-login-styling font-for-text text-center text-white shadow-sm">
+    <h1 class="font-for-brand text-white" style="font-size: 30px">NEW POST</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-      <button type="submit">Post</button>
+        <p>Content</p>
+        <p>{{ form.content }}</p>
+        <button type="submit" class="button-styling">Post</button>
     </form>
   </div>
 {% endblock %}
