@@ -1,25 +1,35 @@
 {% extends "core/base.html" %}
 {% block content %}
-  <div class="container container-feed-styling">
-    <h2 class="font-for-text text-center">Feed</h2>
+  <div class="container-feed-styling">
+    <h1 class="font-for-text text-center fs-1" style="font-size: 30px">FEED</h1>
     {% for post in posts %}
-      <div class="container-post-styling">
+      <div class="container-post-styling font-for-text">
+
         <strong>@{{ post.author.username }}</strong>
+
         <p>{{ post.content }}</p>
+
         <small>{{ post.created_at }}</small>
+
         {% if post.author == user %}
           <a href="{% url 'edit_post' post.id %}">Edit</a> |
           <a href="{% url 'delete_post' post.id %}">Delete</a>
         {% endif %}
+
         <form method="post" action="{% url 'like_post' post.id %}">
-        {% csrf_token %}
-        {% if user in post.likes.all %}
-          <button type="submit" class="btn btn-sm btn-danger">Unlike</button>
-        {% else %}
-          <button type="submit" class="btn btn-sm btn-primary">Like</button>
-        {% endif %}
-      </form>
-      <p class="mt-2"><strong>{{ post.total_likes }}</strong> likes</p>
+          {% csrf_token %}
+
+          {% if user in post.likes.all %}
+            <button type="submit" class="btn btn-sm btn-danger">Unlike</button>
+          {% else %}
+
+            <button type="submit" class="btn btn-sm btn-primary">Like</button>
+          {% endif %}
+        </form>
+
+        <p class="mt-2">
+          <strong>{{ post.total_likes }}</strong> 
+          {% if post.total_likes == 1%} like {% else %} likes {% endif%}</p>
       </div>
     {% empty %}
       <p class="text-center font-for-text no-posts-text">No posts yet. Be the first to roast someone!</p>

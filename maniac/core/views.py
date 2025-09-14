@@ -79,10 +79,10 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Signup Successful! Welcome to Maniac")
+            messages.success(request, "Signup Successful!")
             return redirect('login')
         else:
-            messages.error(request, "Signup Failed. Try Again")
+            messages.error(request, f"Signup Failed. {form.errors}")
             return redirect('signup')
     else:
         form = UserCreationForm()
