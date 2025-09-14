@@ -1,13 +1,12 @@
-# Project Title
+# Maniac
 
-A brief description of what this project does and who it's for.
+The Social Media Website for Insulting People
 
 ---
 
 ## 🚀 Features
-- Feature 1
-- Feature 2
-- Feature 3
+- User Authentication (login, signup, logout) + Custom Profile
+- Create Insulting Posts and Upvote Others
 
 ---
 
@@ -15,10 +14,10 @@ A brief description of what this project does and who it's for.
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/darkcom109/Maniac.git
 
 # Navigate to project directory
-cd your-repo-name
+cd Maniac
 
 # Install dependencies
 npm install   # or yarn install, pip install -r requirements.txt, etc.
