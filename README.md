@@ -10,6 +10,12 @@ The Social Media Website for Insulting People
 
 ---
 
+## ⚙️ Tech Stack
+- Python + Django
+- HTML, CSS, Bootstrap, Sqlite
+
+---
+
 ## 📦 Installation
 
 ```bash
