@@ -134,3 +134,16 @@ def view_post(request, post_id):
         'comments': comments,
         'form': form,
     })
+
+@login_required(login_url='login')
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id, author=request.user)
+    post_id = comment.post.id  # so we can redirect back to the post after deleting
+
+    if request.method == "POST":
+        comment.delete()
+        messages.success(request, "Comment deleted successfully!")
+        return redirect("view_post", post_id=post_id)
+
+    return render(request, "core/delete_comment.html", {"comment": comment})
+

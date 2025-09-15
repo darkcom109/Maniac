@@ -43,9 +43,9 @@
     <!-- Comment Form -->
     <form method="post" class="mb-3 font-for-text flex-column gap-3 mt-lg-5">
         {% csrf_token %}
-        <p class="text-center">{{ form.content }}</p>
-        <div class="d-flex justify-content-center">
-            <button type="submit" name="comment_submit" class="btn btn-sm post-button font-for-text">Add Comment</button>
+        <div class="d-flex justify-content-center flex-row gap-2">
+            {{ form.content }}
+            <button type="submit" name="comment_submit" class="post-button font-for-text">Add Comment</button>
         </div>
     </form>
 
@@ -56,9 +56,10 @@
             {% if comment.author == user %}(You){% endif %}
             <p>{{ comment.content }}</p>
             <small>{{ comment.created_at }}</small>
+            {% if comment.author == user %}<a class="post-button" href="{% url 'delete_comment' comment.id %}">Delete</a>{% endif %}
         </div>
     {% empty %}
-        <p class="text-white">No comments yet. Be the first to roast!</p>
+        <p class="text-white text-center font-for-text">No comments yet. Be the first to roast!</p>
     {% endfor %}
     </div>
 
