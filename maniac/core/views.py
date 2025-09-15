@@ -63,10 +63,12 @@ def like_post(request, post_id):
 
     if request.user in post.likes.all():
         post.likes.remove(request.user)
+        messages.success(request, "YOU FU$%ING DISLIKED THIS POST?")
     else:
         post.likes.add(request.user)
+        messages.success(request, "YOU FU$%ING LIKED THIS POST!")
 
-    return redirect('feed')
+    return redirect('view_post', post.id)
 
 def total_likes(self):
     return self.likes.count()
