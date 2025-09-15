@@ -6,7 +6,9 @@ The Social Media Website for Insulting People
 
 ## 🚀 Features
 - User Authentication (login, signup, logout) + Custom Profile
-- Create Insulting Posts and Upvote Others
+- Create Insulting Posts
+- Comment on Other People's Post and Cause Ragebait
+- Upvote on User's Posts
 
 ---
 
