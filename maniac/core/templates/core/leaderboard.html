@@ -6,6 +6,13 @@
         {% for user in users %}
             <div class="container-user-styling fs-5">
                 <p>{{ user.username }} – {{ user.total_likes }} likes</p>
+                {% if user.total_likes >= 10 %}
+                    <p style="color: gold">Rank: Intermediate Roaster</p>
+                {% elif user.total_likes >= 5 %}
+                    <p style="color: silver">Rank: Amateur Roaster</p>
+                {% else %}
+                    <p style="color: brown">Rank: Bottom Tier Roaster</p>
+                {% endif %}
                 <a href="{% url 'profile' user.username %}" class="button-styling text-decoration-none">View Profile</a>
             </div>
         {% endfor %}
