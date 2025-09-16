@@ -1,12 +1,15 @@
 # Maniac
 
 The Social Media Website for Insulting People
+This project was built using Django, I previously built website applications using Flask and upgraded to Django for organisation and scaling purposes
 
 ---
 
 ## 🚀 Features
 - User Authentication (login, signup, logout) + Custom Profile
-- Create Insulting Posts and Upvote Others
+- Create Insulting Posts
+- Comment on Other People's Post and Cause Ragebait
+- Upvote on User's Posts
 
 ---
 
