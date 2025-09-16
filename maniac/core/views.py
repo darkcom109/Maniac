@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Count
 from .forms import PostForm, CommentForm
 from .models import Post, Comment
 
@@ -14,8 +15,9 @@ def feed(request):
 
 @login_required(login_url='login')
 def profile(request, username):
-    user = get_object_or_404(User, username=username)
-    return render(request, 'core/profile.html', {'profile_user': user})
+    user = User.objects.get(username=username)
+    total_likes = Post.objects.filter(author=user).aggregate(total=Count('likes'))['total']
+    return render(request, 'core/profile.html', {'profile_user': user, 'total_likes': total_likes})
 
 @login_required(login_url='login')
 def view_users(request):
