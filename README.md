@@ -6,10 +6,12 @@ This project was built using Django, I previously built website applications usi
 ---
 
 ## 🚀 Features
-- User Authentication (login, signup, logout) + Custom Profile
+- User Authentication (login, signup, logout) + Custom Profile and Ranking
 - Create Insulting Posts
 - Comment on Other People's Post and Cause Ragebait
 - Upvote on User's Posts
+- View Maniac's Leaderboard ranking
+- View Every User Profile
 
 ---
 
