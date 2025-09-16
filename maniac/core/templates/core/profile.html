@@ -5,5 +5,12 @@
         <h2>{{ profile_user.username }}'s Profile</h2>
         <p>Joined: {{ profile_user.date_joined }}</p>
         <p>Total Likes: {{ total_likes }}</p>
+        {% if total_likes >= 10 %}
+            <p>Rank: Intermediate Roaster</p>
+        {% elif total_likes >= 5 %}
+            <p>Rank: Amateur Roaster</p>
+        {% else %}
+            <p>Rank: Bottom Tier Roaster</p>
+        {% endif %}
     </div>
 {% endblock %}
