@@ -15,7 +15,15 @@ body::-webkit-scrollbar{
 }
 
 .navbar-background {
-  background: linear-gradient(135deg, purple, rgb(241, 133, 151))
+  background: linear-gradient(135deg, purple, rgb(241, 133, 151));
+  animation: gradientShift 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .nav-button {
@@ -42,6 +50,8 @@ body::-webkit-scrollbar{
     border: 1px solid gray;
     border-radius: 30px;
     background: linear-gradient(135deg, purple, rgb(241, 133, 151));
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
 }
 
 .container-post-styling {
@@ -52,6 +62,8 @@ body::-webkit-scrollbar{
     border: 1.5px solid black;
     border-radius: 20px;
     background-color: white;
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
 }
 
 .container-login-styling {
@@ -62,6 +74,25 @@ body::-webkit-scrollbar{
     border: 1.5px solid gray;
     border-radius: 30px;
     background: linear-gradient(135deg, purple, rgb(241, 133, 151));
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
+}
+
+.container-post-styling {
+    padding-block: 50px;
+    padding-inline: 10px;
+    margin-block: 30px;
+    margin-inline: 400px;
+    border: 1.5px solid gray;
+    border-radius: 30px;
+    background: linear-gradient(135deg, purple, rgb(241, 133, 151));
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
+}
+
+.container-post-styling textarea {
+    width: 70% !important;
+    box-sizing: border-box;
 }
 
 .button-styling {
@@ -71,6 +102,8 @@ body::-webkit-scrollbar{
     transition: background-color 0.3s ease;
     padding-inline: 10px;
     padding-block: 2px;
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
 }
 
 .button-styling:hover {
@@ -86,6 +119,8 @@ body::-webkit-scrollbar{
     padding-inline: 5px;
     border-radius: 5px;
     border: 1px black solid;
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
 }
 
 .post-button:hover {
