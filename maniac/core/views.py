@@ -24,6 +24,13 @@ def view_users(request):
     users = User.objects.all().order_by('-date_joined')
     return render(request, 'core/view_users.html', {'users': users})
 
+@login_required(login_url='login')
+def leaderboard(request):
+    users = User.objects.annotate(
+        total_likes=Count('post__likes')
+    ).order_by('-total_likes')
+    return render(request, 'core/leaderboard.html', {'users': users})
+
 def login_view(request):
     return render(request, 'core/login.html')
 
