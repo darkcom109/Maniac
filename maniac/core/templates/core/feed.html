@@ -3,7 +3,7 @@
   <div class="container-feed-styling">
     <h1 class="font-for-brand text-white text-center" style="font-size: 30px">FEED</h1>
     {% for post in posts %}
-      <div class="container-post-styling font-for-text shadow-sm">
+      <div class="container-posts-styling font-for-text shadow-sm">
 
         <strong>@{{ post.author.username }}</strong>
         {% if post.author == user %}(You){% endif%}

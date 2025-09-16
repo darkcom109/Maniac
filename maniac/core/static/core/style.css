@@ -95,6 +95,29 @@ body::-webkit-scrollbar{
     box-sizing: border-box;
 }
 
+.container-posts-styling {
+    padding-block: 50px;
+    padding-inline: 30px;
+    margin-inline: 20px;
+    margin-block: 30px;
+    border: 1.5px solid black;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.container-users-styling {
+    background: linear-gradient(135deg, purple, rgb(241, 133, 151));
+}
+
+.container-user-styling {
+    background-color: white;
+    padding: 0px;
+    padding-block: 20px;
+    margin-inline: 20px;
+    border: 1.5px solid black;
+    border-radius: 20px;
+}
+
 .button-styling {
     background: linear-gradient(135deg, purple, rgb(241, 133, 151));
     color: white;

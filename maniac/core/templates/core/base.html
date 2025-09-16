@@ -29,6 +29,9 @@
                         </li>
                         {% if user.is_authenticated %}
                             <li class="nav-item">
+                                <a class="nav-link active text-white nav-button fs-5" aria-current="page" href="{% url 'view_users' %}">USERS</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link active text-white nav-button fs-5" aria-current="page" href="{% url 'profile' user.username %}">PROFILE</a>
                             </li>
                             <li class="nav-item">

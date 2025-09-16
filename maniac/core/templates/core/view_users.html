@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="container-feed-styling text-center text-black font-for-text d-flex flex-column gap-3">
+        <h1 class="font-for-brand text-white" style="font-size: 30px">USERS</h1>
+        {% for user in users %}
+            <div class="container-user-styling fs-5">
+                {{user.username}}
+                <br>
+                {{user.date_joined}}
+                <br>
+                <a href="{% url 'profile' user.username %}" class="button-styling text-decoration-none">View Profile</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% block content %}
   <div class="container-feed-styling">
     <h1 class="font-for-text text-center text-white fs-1" style="font-size: 30px">View Post</h1>
-      <div class="container-post-styling font-for-text shadow-sm">
+      <div class="container-posts-styling font-for-text shadow-sm">
 
         <strong>@{{ post.author.username }}</strong>
         {% if post.author == user %}(You){% endif%}
@@ -51,11 +51,12 @@
 
     <!-- Existing Comments -->
     {% for comment in comments %}
-        <div class="container-post-styling font-for-text shadow-sm mb-2">
+        <div class="container-posts-styling font-for-text shadow-sm mb-2">
             <strong>@{{ comment.author.username }}</strong>
             {% if comment.author == user %}(You){% endif %}
             <p>{{ comment.content }}</p>
             <small>{{ comment.created_at }}</small>
+            <br>
             {% if comment.author == user %}<a class="post-button" href="{% url 'delete_comment' comment.id %}">Delete</a>{% endif %}
         </div>
     {% empty %}

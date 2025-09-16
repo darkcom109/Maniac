@@ -17,6 +17,11 @@ def profile(request, username):
     user = get_object_or_404(User, username=username)
     return render(request, 'core/profile.html', {'profile_user': user})
 
+@login_required(login_url='login')
+def view_users(request):
+    users = User.objects.all().order_by('-date_joined')
+    return render(request, 'core/view_users.html', {'users': users})
+
 def login_view(request):
     return render(request, 'core/login.html')
 
