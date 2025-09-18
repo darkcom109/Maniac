@@ -17,7 +17,7 @@ This project was built using Django, I previously built website applications usi
 
 ## ⚙️ Tech Stack
 - Python + Django
-- HTML, CSS, Bootstrap, Sqlite
+- HTML, CSS, Bootstrap, Sqlite3
 
 ---
 
