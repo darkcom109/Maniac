@@ -10,7 +10,7 @@ This project was built using Django, I previously built website applications usi
 - Create Insulting Posts
 - Comment on Other People's Post and Cause Ragebait
 - Upvote on User's Posts
-- View Maniac's Leaderboard ranking
+- View Maniac's Leaderboard Ranking
 - View Every User Profile
 
 ---
