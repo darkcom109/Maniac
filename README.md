@@ -11,7 +11,7 @@ This project was built using Django, I previously built website applications usi
 - Comment on Other People's Post and Cause Ragebait
 - Upvote on User's Posts
 - View Maniac's Leaderboard Ranking and Obtain a Rank
-- View Every User Profile
+- View Every Users Profile
 
 ---
 
