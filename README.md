@@ -5,7 +5,8 @@ This project was built using Django, I previously built website applications usi
 
 ---
 <img width="959" height="450" alt="image" src="https://github.com/user-attachments/assets/1956ce20-5220-427c-858f-74803c3f1a01" />
-
+<img width="959" height="448" alt="image" src="https://github.com/user-attachments/assets/a0034c00-20bb-4e08-8116-0ca900e0d111" />
+---
 
 ## 🚀 Features
 - User Authentication (login, signup, logout) + Custom Profile and Ranking
