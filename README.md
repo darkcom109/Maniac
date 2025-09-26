@@ -4,6 +4,8 @@ The Social Media Website for Insulting People
 This project was built using Django, I previously built website applications using Flask and upgraded to Django for organisation and scaling purposes
 
 ---
+<img width="959" height="450" alt="image" src="https://github.com/user-attachments/assets/1956ce20-5220-427c-858f-74803c3f1a01" />
+
 
 ## 🚀 Features
 - User Authentication (login, signup, logout) + Custom Profile and Ranking
