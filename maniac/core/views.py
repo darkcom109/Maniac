@@ -77,10 +77,10 @@ def like_post(request, post_id):
 
     if request.user in post.likes.all():
         post.likes.remove(request.user)
-        messages.success(request, "YOU FU$%ING DISLIKED THIS POST?")
+        messages.success(request, "YOU DISLIKED THIS POST?")
     else:
         post.likes.add(request.user)
-        messages.success(request, "YOU FU$%ING LIKED THIS POST!")
+        messages.success(request, "YOU LIKED THIS POST!")
 
     return redirect('view_post', post.id)
 
