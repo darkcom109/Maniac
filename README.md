@@ -1,6 +1,6 @@
 # Maniac
 
-The Social Media Website for Insulting People
+The Social Media Website for Roasting People Creatively.
 This project was built using Django, I previously built website applications using Flask and upgraded to Django for organisation and scaling purposes
 
 ---
