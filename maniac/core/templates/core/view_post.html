@@ -1,0 +1,83 @@
+{% extends "core/base.html" %}
+{% block content %}
+  <div class="container-feed-styling">
+    <h1 class="font-for-text text-center text-white fs-1" style="font-size: 30px">View Post</h1>
+      <div class="container-posts-styling font-for-text shadow-sm">
+
+        <!-- Header -->
+        <div class="post-header">
+          <div class="author-line">
+            <strong class="author">@{{ post.author.username }}</strong>
+            {% if post.author == user %}
+              <span>(You)</span>
+            {% endif %}
+          </div>
+          <small class="post-date">{{ post.created_at }}</small>
+        </div>
+
+        <!-- Body -->
+        <div class="post-body">
+          <p class="post-content">{{ post.content }}</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="post-footer">
+          <div class="post-actions">
+            {% if post.author == user %}
+              <a class="post-button" href="{% url 'edit_post' post.id %}">Edit</a>
+              <a class="post-button danger" href="{% url 'delete_post' post.id %}">Delete</a>
+            {% endif %}
+            <a class="post-button" href="{% url 'feed' %}">Back</a>
+          </div>
+
+          <form class="like-form" method="post" action="{% url 'like_post' post.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-emoji">
+              {% if user in post.likes.all %} 😂 {% else %} 😐 {% endif %}
+            </button>
+            <span class="likes">
+              <strong>{{ post.total_likes }}</strong>
+              {% if post.total_likes == 1 %} like {% else %} likes {% endif %}
+            </span>
+          </form>
+        </div>
+      </div>
+  </div>
+
+  <div class="container-feed-styling">
+  <h2 class="font-for-text text-center text-white fs-1" style="font-size: 30px">Comment Section</h2>
+
+    <!-- Comment Form -->
+    <form method="post" class="mb-3 font-for-text flex-column gap-3 mt-lg-5">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center flex-row gap-2">
+            {{ form.content }}
+            <button type="submit" name="comment_submit" class="post-button font-for-text">Add Comment</button>
+        </div>
+    </form>
+
+    <!-- Existing Comments -->
+    {% for comment in comments %}
+        <div class="container-posts-styling font-for-text shadow-sm mb-2">
+          <div class="post-header">
+            <div class="author-line">
+              <strong class="author">@{{ comment.author.username }}</strong>
+              {% if comment.author == user %}
+                <span>(You)</span>
+              {% endif %}
+            </div>
+            <small class="post-date">{{ comment.created_at }}</small>
+          </div>
+
+          <!-- Body -->
+          <div class="post-body">
+           <p class="post-content">{{ comment.content }}</p>
+          </div>
+            {% if comment.author == user %}<a class="post-button danger" href="{% url 'delete_comment' comment.id %}">Delete</a>{% endif %}
+        </div>
+    {% empty %}
+        <p class="text-white text-center font-for-text">No comments yet. Be the first to roast!</p>
+    {% endfor %}
+    </div>
+
+{% endblock %}

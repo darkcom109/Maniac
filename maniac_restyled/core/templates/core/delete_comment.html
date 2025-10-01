@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+{% block content %}
+  <div class="container-feed-styling text-center font-for-text text-white">
+    <h2 class="font-for-text text-white">Delete Comment</h2>
+    <p class="font-for-text">Are you sure you want to delete this comment?</p>
+    <p class="font-for-text"><em>{{ comment.content }}</em></p>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="post-button">Yes, Delete</button>
+      <a href="{% url 'view_post' comment.post.id %}" class="post-button" style="padding-block: 7px">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

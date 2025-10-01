@@ -1,0 +1,51 @@
+{% extends "core/base.html" %}
+{% block content %}
+  <div class="container-feed-styling">
+    <h1 class="font-for-brand text-white text-center" style="font-size: 30px">FEED</h1>
+    {% for post in posts %}
+      <div class="container-posts-styling font-for-text shadow-sm">
+
+        <!-- Header -->
+        <div class="post-header">
+          <div class="author-line">
+            <strong class="author">@{{ post.author.username }}</strong>
+            {% if post.author == user %}
+              <span>(You)</span>
+            {% endif %}
+          </div>
+          <small class="post-date">{{ post.created_at }}</small>
+        </div>
+
+        <!-- Body -->
+        <div class="post-body">
+          <p class="post-content">{{ post.content }}</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="post-footer">
+          <div class="post-actions">
+            {% if post.author == user %}
+              <a class="post-button" href="{% url 'edit_post' post.id %}">Edit</a>
+              <a class="post-button danger" href="{% url 'delete_post' post.id %}">Delete</a>
+            {% endif %}
+            <a class="post-button" href="{% url 'view_post' post.id %}">View</a>
+          </div>
+
+          <form class="like-form" method="post" action="{% url 'like_post' post.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-emoji">
+              {% if user in post.likes.all %} 😂 {% else %} 😐 {% endif %}
+            </button>
+            <span class="likes">
+              <strong>{{ post.total_likes }}</strong>
+              {% if post.total_likes == 1 %} like {% else %} likes {% endif %}
+            </span>
+          </form>
+        </div>
+      </div>
+
+    {% empty %}
+      <p class="text-center font-for-text no-posts-text text-white">No posts yet. Be the first to roast someone!</p>
+    {% endfor %}
+  </div>
+{% endblock %}

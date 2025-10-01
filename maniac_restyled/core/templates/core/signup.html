@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% block content %}
+    <div class="container-login-styling text-center font-for-text d-flex flex-column gap-4 shadow">
+        
+        <div>
+            <h1 class="font-for-brand text-white" style="font-size: 30px">SIGNUP</h1>
+            <p class="text-white">Make a Maniac Account</p>
+        </div>
+
+        <form method="post" class="d-flex flex-column gap-3">
+            {% csrf_token %}
+            <div>
+                <p class="fs-5 text-white">Username</p>
+                <p>{{ form.username }}</p>
+            </div>
+            <div>
+                <p class="fs-5 text-white">Password</p>
+                <p>{{ form.password1 }}</p>
+                {{ form.password1.errors }}
+            </div>
+            <div>
+                <p class="fs-5 text-white">Confirm Your Password</p>
+                <p>{{ form.password2 }}</p>
+                {{ form.password2.errors }}
+            </div>
+            <div>
+                <button class="button-styling mw-100" type="submit">Signup</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

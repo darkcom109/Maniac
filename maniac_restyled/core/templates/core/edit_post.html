@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+{% block content %}
+  <div class="container-post-styling font-for-text text-center text-white shadow-sm">
+    <h1 class="font-for-brand text-white" style="font-size: 30px">EDIT POST</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Content</p>
+        <p>{{ form.content }}</p>
+        <button type="submit" class="button-styling">Save Changes</button>
+    </form>
+  </div>
+{% endblock %}

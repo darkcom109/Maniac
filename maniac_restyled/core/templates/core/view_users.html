@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+{% block content %}
+  <div class="container-feed-styling font-for-text users-page" style="margin-block: 30px;">
+    <h1 class="font-for-brand text-center text-white mb-4 mt-3" style="font-size: 28px;">Users</h1>
+
+    <div class="users-list">
+      {% for user in users %}
+        <div class="user-card">
+          <div class="user-info">
+            <h3 class="username">{{ user.username }}</h3>
+            <p class="joined">Joined on {{ user.date_joined|date:"F j, Y" }}</p>
+          </div>
+          <a href="{% url 'profile' user.username %}" class="button-styling view-profile">View Profile</a>
+        </div>
+      {% empty %}
+        <p class="text-center text-white">No users found.</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

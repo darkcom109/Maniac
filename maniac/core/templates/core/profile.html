@@ -1,0 +1,29 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+  <div class="container-feed-styling shadow-sm profile-card font-for-text text-white">
+    <div class="profile-header text-center">
+      <h2 class="font-for-brand">{{ profile_user.username }}</h2>
+      <p class="joined">Joined on {{ profile_user.date_joined|date:"F j, Y" }}</p>
+    </div>
+
+    <div class="profile-stats">
+      <div class="stat">
+        <span class="stat-label">Total Likes</span>
+        <span class="stat-value">{{ total_likes }}</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Rank</span>
+        <span class="stat-value">
+          {% if total_likes >= 10 %}
+            Diabolical Comedian
+          {% elif total_likes >= 5 %}
+            Amateur Comedian
+          {% else %}
+            Bottom Tier Comedian
+          {% endif %}
+        </span>
+      </div>
+    </div>
+  </div>
+{% endblock %}
