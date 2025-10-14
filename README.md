@@ -3,8 +3,11 @@
 The Social Media Website for Being a Comedian. Gain Likes. Reach the Leaderboards.
 This project was built using the Django framework.
 All styling and design was done from scratch with help using the Bootstrap documentation
+
+---
 Improvements Required:
 - Much better styling, the font is not appealing and was an attempt at a retro style. Google fonts did not have many options
+---
 
 ---
 
