@@ -4,10 +4,8 @@ The Social Media Website for Being a Comedian. Gain Likes. Reach the Leaderboard
 This project was built using the Django framework.
 All styling and design was done from scratch with help using the Bootstrap documentation
 
----
 Friendly Note: This was my first time building a Django application and an attempt to build a retro-themed website,
 the website styling may not look up-to-par as I did it all manually with Bootstrap v5
----
 
 <img width="959" height="449" alt="image" src="https://github.com/user-attachments/assets/a67e8d88-6ce1-4f63-87b8-59c185189756" />
 
