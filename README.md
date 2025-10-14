@@ -9,8 +9,6 @@ Improvements Required:
 - Much better styling, the font is not appealing and was an attempt at a retro style. Google fonts did not have many options
 ---
 
----
-
 <img width="959" height="449" alt="image" src="https://github.com/user-attachments/assets/a67e8d88-6ce1-4f63-87b8-59c185189756" />
 
 <img width="959" height="449" alt="image" src="https://github.com/user-attachments/assets/e903eb0b-c1dc-41be-855c-c7c98fa257e0" />
