@@ -27,7 +27,7 @@ the website styling may not look up-to-par as I did it all manually with Bootstr
 
 ## ⚙️ Tech Stack
 - Python + Django
-- HTML, CSS, Bootstrap, Sqlite3
+- HTML, CSS, Bootstrap 5, SQLite3
 
 ---
 
